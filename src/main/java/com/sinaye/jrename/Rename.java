@@ -284,7 +284,7 @@ public class Rename {
         if(!link.isEmpty()){
             IMDBCrawler crawler = new IMDBCrawler();
             try {
-                String[] fileNames = crawler.get(link);
+                String[] fileNames = crawler.getEpisodeNames(link);
                 for(String f : fileNames){
                     txaFilenames.appendText(f + "\n");
                 }
