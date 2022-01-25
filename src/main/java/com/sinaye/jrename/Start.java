@@ -50,6 +50,7 @@ public class Start extends Application{
             fileList.initModality(Modality.APPLICATION_MODAL);
             fileList.setScene(new Scene(fileListFXML));
             fileList.initStyle(StageStyle.UTILITY);
+            System.setProperty("https.protocols", "TLSv1,TLSv1.1,TLSv1.2");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
