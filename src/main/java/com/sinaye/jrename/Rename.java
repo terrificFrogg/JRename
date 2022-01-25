@@ -106,6 +106,12 @@ public class Rename {
     
     @FXML
     private ComboBox<String> cmbSpaceReplace;
+
+    @FXML
+    private Button btnFetch;
+
+    @FXML
+    private TextField txfLink;
     
     @FXML
     private ComboBox<String> cmbFileTypes;
@@ -163,6 +169,10 @@ public class Rename {
 
         btnThirdUndo.addEventHandler(ActionEvent.ACTION, e->{
 
+        });
+
+        btnFetch.addEventHandler(ActionEvent.ACTION, e ->{
+            fetchFromIMDB();
         });
 
         cmbBrackets.getItems().addAll("Ignore", "Square Brackets - []", "Parentheses - ()", "Curly Brackets - {}");
@@ -268,7 +278,22 @@ public class Rename {
             
         }
     }
-    
+
+    private void fetchFromIMDB(){
+        String link = txfLink.getText();
+        if(!link.isEmpty()){
+            IMDBCrawler crawler = new IMDBCrawler();
+            try {
+                String[] fileNames = crawler.get(link);
+                for(String f : fileNames){
+                    txaFilenames.appendText(f + "\n");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     private void rename2(){
         arrFileNames.clear();
         if(!txaFilenames.getText().isEmpty()){

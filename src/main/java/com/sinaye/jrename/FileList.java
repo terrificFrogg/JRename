@@ -86,8 +86,8 @@ public class FileList {
         TableColumn<FileNamesTable, String> oldName = new TableColumn<>("Old FileName");
         TableColumn<FileNamesTable, String> newName = new TableColumn<>("New FileName");
 
-        oldName.setCellValueFactory(new PropertyValueFactory("oldName"));
-        newName.setCellValueFactory(new PropertyValueFactory("newName"));
+        oldName.setCellValueFactory(new PropertyValueFactory<>("oldName"));
+        newName.setCellValueFactory(new PropertyValueFactory<>("newName"));
 
         for(int i = 0; i <= newFileNames.size() - 1; i++){
             if(ogFiles[i].isFile()){

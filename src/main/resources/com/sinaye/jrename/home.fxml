@@ -45,14 +45,16 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextArea fx:id="txaFilenames" layoutX="24.0" layoutY="14.0" prefHeight="155.0" prefWidth="534.0" promptText="Enter filenames per line" />
+                        <TextArea fx:id="txaFilenames" layoutX="14.0" layoutY="65.0" prefHeight="155.0" prefWidth="534.0" promptText="Enter filenames per line" />
                         <Button fx:id="btnRename2" layoutX="210.0" layoutY="234.0" mnemonicParsing="false" text="Rename" />
                         <Button fx:id="btnSecUndo" layoutX="296.0" layoutY="234.0" mnemonicParsing="false" text="Undo" />
+                        <TextField fx:id="txfLink" layoutX="14.0" layoutY="24.0" prefHeight="25.0" prefWidth="255.0" promptText="IMDB link listing episode names" />
+                        <Button fx:id="btnFetch" layoutX="287.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" text="Fetch" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Remove Text">
+            <Tab disable="true" text="Remove Text [Coming Soon]">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="285.0" prefWidth="528.0">
                      <children>
