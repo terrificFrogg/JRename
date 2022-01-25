@@ -23,4 +23,7 @@
 hs_err_pid*
 
 #build folder
-build/
+/build/
+
+.gradle/
+.idea/
