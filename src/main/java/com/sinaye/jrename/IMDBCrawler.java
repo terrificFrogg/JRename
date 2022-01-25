@@ -11,7 +11,7 @@ public class IMDBCrawler {
 
     public IMDBCrawler(){}
 
-    public String[] get(String link) throws IOException{
+    public String[] getEpisodeNames(String link) throws IOException{
         String[] episodeList = null;
         if(!link.isEmpty()){
             Document doc = Jsoup.connect(link).get();
