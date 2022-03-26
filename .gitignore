@@ -27,3 +27,5 @@ build/
 #other folders
 .gradle/
 .idea/
+#other files
+*.obj

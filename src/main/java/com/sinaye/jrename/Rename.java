@@ -58,6 +58,7 @@ public class Rename {
     private ObservableList<String> arrFileTypes;
     private boolean undoSelected;
     private boolean fromRename2;
+    private final Settings settings = Settings.getInstance();
     
     @FXML
     private TextField txfDefaultFileName;
@@ -138,11 +139,18 @@ public class Rename {
             cmbFileTypes.setPromptText("File Types");
 
             DirectoryChooser dirChooser = new DirectoryChooser();
-            dirChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+            String location = settings.getItem("last-dir"); //Get the last opened directory.
+            File lastDir = new File(location);
+            if(lastDir.exists()){
+                dirChooser.setInitialDirectory(lastDir);
+            }else{
+                dirChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+            }
             dirChooser.setTitle("Choose Folder");
             selectedDir = dirChooser.showDialog(null);
             if(selectedDir != null){
                 txfFolderAddress.setText(selectedDir.getAbsolutePath());
+                settings.saveData("last-dir", selectedDir.getAbsolutePath());
             }
             getFileTypes();
         });
@@ -310,12 +318,12 @@ public class Rename {
              */
 //            if(arrNewFNames.size() == selectedDir.listFiles().length){
                 //Store files in the current folder in an array
-                File arrFiles[] = selectedDir.listFiles();
+                File[] arrFiles = selectedDir.listFiles();
                 int fIndex = 0;
                 int fileNo = 1;
                 String fileType = "";
                 
-                for(File currFile : arrFiles){
+                for(File currFile : Objects.requireNonNull(arrFiles)){
                     //without this if statement, the app crashes for some reason
                     if(currFile.getAbsolutePath().endsWith(getSelectedFileType())){
                         if(currFile.isFile()){
@@ -499,4 +507,6 @@ public class Rename {
     private String getSelectedFileType(){
         return cmbFileTypes.getSelectionModel().getSelectedItem() + "";
     }
+
+
 }
