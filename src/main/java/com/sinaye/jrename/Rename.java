@@ -140,7 +140,7 @@ public class Rename {
 
             DirectoryChooser dirChooser = new DirectoryChooser();
             String location = settings.getItem("last-dir"); //Get the last opened directory.
-            File lastDir = new File(location);
+            File lastDir = new File(location.substring(0, location.lastIndexOf("\\")));
             if(lastDir.exists()){
                 dirChooser.setInitialDirectory(lastDir);
             }else{
