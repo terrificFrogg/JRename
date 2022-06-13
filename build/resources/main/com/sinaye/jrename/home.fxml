@@ -54,7 +54,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab disable="true" text="Remove Text [Coming Soon]">
+            <Tab text="Remove Text [Coming Soon]">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="285.0" prefWidth="528.0">
                      <children>
